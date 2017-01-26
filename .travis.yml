@@ -24,7 +24,7 @@ before_install:
     }' > ~/.homebridge/config.json"
 before_script:
   - npm install -g eslint
-  - ln -s /home/travis/build/maplesteve/homebridge-server/ /usr/local/lib/node_modules/homebridge-server/
+  - ln -s /home/travis/build/maplesteve/homebridge-server/ /usr/local/lib/node_modules/homebridge-server
 addons:
   apt:
     sources:
