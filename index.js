@@ -12,8 +12,7 @@ function ServerPlatform(log, config) {
     var fs = require('fs');
     var http = require('http');
 
-    // var hbsPath = "/usr/local/lib/node_modules/homebridge-server/";
-    var hbsPath = "./";
+    var hbsPath = "/usr/local/lib/node_modules/homebridge-server/";
     if (config.modulePath) {
         hbsPath = config.modulePath;
     }
