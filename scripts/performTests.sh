@@ -41,7 +41,8 @@ fi
 cp scripts/$HOMEBRIDGE_CONFIG "$TEST_CONFIG_DIR/config.json"
 
 # Start homebridge
-$HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR >/dev/null 2>&1 &
+# $HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR >/dev/null 2>&1 &
+$HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR &
 
 # Give homebridge 5 seconds to be ready
 echo "Waiting 5 seconds for homebridge to start..."
