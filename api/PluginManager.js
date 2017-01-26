@@ -130,7 +130,8 @@ PluginManager.prototype.removePlugin = function(pluginName, callback) {
 function getInstalledPlugins() {
     var fs = require('fs');
 
-    var modulePath = "/usr/local/lib/node_modules/";
+    // var modulePath = "/usr/local/lib/node_modules/";
+    var modulePath = hbsPath;
     var modules = fs.readdirSync(modulePath);
     var plugins = [];
     for (var moduleID in modules) {
