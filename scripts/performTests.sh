@@ -43,11 +43,14 @@ fi
 # Copy the config.json fixture
 cp scripts/$HOMEBRIDGE_CONFIG "$TEST_CONFIG_DIR/config.json"
 
+# sed -i ".bak" "s/\"modulePath\": \"\"/\"modulePath\": \"$TRAVIS_BUILD_DIR\"/g" testconfig.json
+# exit 0
+
 if [ "$TRAVIS_BUILD_DIR" != "" ]; then
     echo "We're running on travis-ci!"
     HOMEBRIDGE_SERVER_DIR=$TRAVIS_BUILD_DIR
     if ! [ -e "~/.homebridge/config.json" ]; then
-        sed -i .bak "s/\"modulePath\": \"\"/\"modulePath\": \"$TRAVIS_BUILD_DIR\"/g" ~/.homebridge/config.json
+        sed -i ".bak" "s/\"modulePath\": \"\"/\"modulePath\": \"$TRAVIS_BUILD_DIR\"/g" ~/.homebridge/config.json
         cp ~/.homebridge/config.json "$TEST_CONFIG_DIR/config.json"
         echo "replaced travis-special config"
         cat "$TEST_CONFIG_DIR/config.json"
