@@ -43,9 +43,12 @@ fi
 # Copy the config.json fixture
 cp scripts/$HOMEBRIDGE_CONFIG "$TEST_CONFIG_DIR/config.json"
 
-if ! [ -e "~/.homebridge/config.json" ]; then
-    cp ~/.homebridge/config.json "$TEST_CONFIG_DIR/config.json"
-    echo "replaced travis-special config"
+if [ "$TRAVIS_BUILD_DIR" != "" ]; then
+    echo "We're running on travis-ci!"
+    if ! [ -e "~/.homebridge/config.json" ]; then
+        cp ~/.homebridge/config.json "$TEST_CONFIG_DIR/config.json"
+        echo "replaced travis-special config"
+    fi
 fi
 # exit 0
 

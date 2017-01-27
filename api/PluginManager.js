@@ -132,11 +132,11 @@ function getInstalledPlugins() {
     var plugins = [];
 
     // var modulePath = "/usr/local/lib/node_modules/";
-    var possiblePaths = ["/usr/local/lib/node_modules/", hbsPath];
+    var possiblePaths = ["/usr/local/lib/node_modules/", hbsPath+"../"];
     possiblePaths.forEach(function(modulePath) {
         console.log("Checking possible path: " + modulePath);
         if (! fs.existsSync(modulePath)) {
-            continue;
+            return;
         }
         var modules = fs.readdirSync(modulePath);
         for (var moduleID in modules) {
