@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo $TRAVIS_BUILD_DIR
+
 HOMEBRIDGE_BINARY="homebridge"
 HOMEBRIDGE_SERVER_DIR="../"
 HOMEBRIDGE_CONFIG="homebridge-test-config.json"
@@ -39,6 +41,11 @@ fi
 
 # Copy the config.json fixture
 cp scripts/$HOMEBRIDGE_CONFIG "$TEST_CONFIG_DIR/config.json"
+
+if [[ -x "~/.homebridge/config.json" ]]; then
+    cp ~/.homebridge/config.json $TEST_CONFIG_DIR/
+    echo "replaced travis-special config"
+fi
 
 # Start homebridge
 # $HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR >/dev/null 2>&1 &
