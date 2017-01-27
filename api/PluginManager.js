@@ -129,27 +129,31 @@ PluginManager.prototype.removePlugin = function(pluginName, callback) {
  */
 function getInstalledPlugins() {
     var fs = require('fs');
+    var plugins = [];
 
     // var modulePath = "/usr/local/lib/node_modules/";
-    var modulePath = hbsPath;
-    var modules = fs.readdirSync(modulePath);
-    var plugins = [];
-    for (var moduleID in modules) {
-        var moduleName = modules[moduleID];
-        if (moduleName.startsWith('homebridge-')) {
-            var packagePath = modulePath + moduleName + "/package.json";
-            var packageJSON = require(packagePath);
-            var plugin = {
-                "name": moduleName,
-                "version": packageJSON.version,
-                "latestVersion": "n/a",
-                "isLatestVersion": "n/a",
-                "platformUsage": 0,
-                "accessoryUsage": 0
+    var possiblePaths = ["/usr/local/lib/node_modules/", hbsPath];
+    possiblePaths.forEach(function(modulePath) {
+        console.log("Checking possible path: " + modulePath);
+        var modules = fs.readdirSync(modulePath);
+        for (var moduleID in modules) {
+            var moduleName = modules[moduleID];
+            if (moduleName.startsWith('homebridge-')) {
+                console.log("found installed plugin at " + modulePath + moduleName);
+                var packagePath = modulePath + moduleName + "/package.json";
+                var packageJSON = require(packagePath);
+                var plugin = {
+                    "name": moduleName,
+                    "version": packageJSON.version,
+                    "latestVersion": "n/a",
+                    "isLatestVersion": "n/a",
+                    "platformUsage": 0,
+                    "accessoryUsage": 0
+                }
+                plugins.push(plugin);
             }
-            plugins.push(plugin);
         }
-    }
+    });
     _plugins = plugins;
     enrichUsageInfo();
     enrichMetadata();
