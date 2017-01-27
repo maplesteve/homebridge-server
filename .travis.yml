@@ -18,7 +18,7 @@ before_install:
       \"platform\": \"Server\", \n
       \"port\": 8765, \n
       \"name\": \"Homebridge Server\", \n
-      \"modulePath\": \"/home/travis/build/maplesteve/homebridge-server/\" \n
+      \"modulePath\": \"$TRAVIS_BUILD_DIR\" \n
       } \n
     ], \n
     \"accessories\": [] \n
