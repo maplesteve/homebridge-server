@@ -48,12 +48,14 @@ if [ "$TRAVIS_BUILD_DIR" != "" ]; then
     if ! [ -e "~/.homebridge/config.json" ]; then
         cp ~/.homebridge/config.json "$TEST_CONFIG_DIR/config.json"
         echo "replaced travis-special config"
+        cat "$TEST_CONFIG_DIR/config.json"
     fi
 fi
 # exit 0
 
 # Start homebridge
-$HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR >/dev/null 2>&1 &
+# $HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR >/dev/null 2>&1 &
+$HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR &
 
 # Give homebridge 5 seconds to be ready
 echo "Waiting 5 seconds for homebridge to start..."
