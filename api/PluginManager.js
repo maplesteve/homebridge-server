@@ -135,6 +135,9 @@ function getInstalledPlugins() {
     var possiblePaths = ["/usr/local/lib/node_modules/", hbsPath];
     possiblePaths.forEach(function(modulePath) {
         console.log("Checking possible path: " + modulePath);
+        if (! fs.existsSync(modulePath)) {
+            continue;
+        }
         var modules = fs.readdirSync(modulePath);
         for (var moduleID in modules) {
             var moduleName = modules[moduleID];
