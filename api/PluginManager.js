@@ -131,10 +131,9 @@ function getInstalledPlugins() {
     var fs = require('fs');
     var plugins = [];
 
-    // var modulePath = "/usr/local/lib/node_modules/";
-    var possiblePaths = ["/usr/local/lib/node_modules/", hbsPath+"../"];
+    var globalModulePath = "/usr/local/lib/node_modules/";
+    var possiblePaths = [globalModulePath, hbsPath+"../"];
     possiblePaths.forEach(function(modulePath) {
-        console.log("Checking possible path: " + modulePath);
         if (! fs.existsSync(modulePath)) {
             return;
         }
