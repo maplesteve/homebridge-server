@@ -45,6 +45,7 @@ cp scripts/$HOMEBRIDGE_CONFIG "$TEST_CONFIG_DIR/config.json"
 
 if [ "$TRAVIS_BUILD_DIR" != "" ]; then
     echo "We're running on travis-ci!"
+    HOMEBRIDGE_SERVER_DIR=$TRAVIS_BUILD_DIR
     if ! [ -e "~/.homebridge/config.json" ]; then
         cp ~/.homebridge/config.json "$TEST_CONFIG_DIR/config.json"
         echo "replaced travis-special config"
@@ -54,6 +55,7 @@ fi
 # exit 0
 
 # Start homebridge
+echo "Starting homebridge: $HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR"
 # $HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR >/dev/null 2>&1 &
 $HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR &
 
