@@ -24,7 +24,7 @@ module.exports = {
 var _plugins = {};
 
 var hbsPath = "";
-var hbLog = function() {};
+var hbLog = function() {};       // eslint-disable-line
 
 function PluginManager(libPath, log) {
     hbsPath = libPath;
@@ -141,7 +141,6 @@ function getInstalledPlugins() {
         for (var moduleID in modules) {
             var moduleName = modules[moduleID];
             if (moduleName.startsWith('homebridge-')) {
-                console.log("found installed plugin at " + modulePath + moduleName);
                 var packagePath = modulePath + moduleName + "/package.json";
                 var packageJSON = require(packagePath);
                 var plugin = {

@@ -1,5 +1,5 @@
 /* eslint-env node */
-var Service, Characteristic, LastUpdate, HomebridgeAPI;
+var Service, Characteristic, LastUpdate, HomebridgeAPI;       // eslint-disable-line
 
 module.exports = function(homebridge) {
     Service = homebridge.hap.Service;
@@ -18,7 +18,7 @@ function ServerPlatform(log, config) {
     }
 
     // ... contains a list of installed plugins.
-    var installedPlugins = "";
+    // var installedPlugins = "";
 
     function loadHTML(name, callback) {
         var path = hbsPath + "content/" + name;
@@ -91,12 +91,12 @@ function ServerPlatform(log, config) {
     }
 
     function reloadConfig(res) {
-        loadConfig();
-        printMainPage(res);
+        loadConfig();       // eslint-disable-line
+        printMainPage(res);       // eslint-disable-line
     }
 
-    function saveConfig(res, backup) {
-        var newConfig = JSON.stringify(configJSON)
+    function saveConfig(res, backup) {       // eslint-disable-line
+        var newConfig = JSON.stringify(configJSON)       // eslint-disable-line
             .replace(/\[,/g, '[')
             .replace(/,null/g, '')
             .replace(/null,/g, '')
@@ -105,7 +105,7 @@ function ServerPlatform(log, config) {
             .replace(/,\]/g, ']');
         newConfig = JSON.stringify(JSON.parse(newConfig), null, 4);
         if (backup != null) {
-            fs.writeFile(HomebridgeAPI.user.configPath() + '.bak', newConfig, "utf8", function(err, data) {
+            fs.writeFile(HomebridgeAPI.user.configPath() + '.bak', newConfig, "utf8", function(err, data) {       // eslint-disable-line
                 if (err) {
                     return log(err);
                 }
@@ -225,7 +225,7 @@ function ServerPlatform(log, config) {
                 if (config.log == "systemd") {
                       var exec = require('child_process').exec;
                       var cmd = "journalctl --no-pager -u homebridge --since yesterday";
-                      exec(cmd, function(error, stdout, stderr) {
+                      exec(cmd, function(error, stdout, stderr) {       // eslint-disable-line
                           log("Executing: " + cmd);
                           res.write(header + navBar);
                           res.write("<div class='container'>");
