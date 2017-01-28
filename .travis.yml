@@ -18,14 +18,13 @@ before_install:
       \"platform\": \"Server\", \n
       \"port\": 8765, \n
       \"name\": \"Homebridge Server\", \n
-      \"modulePath\": \"\" \n
+      \"modulePath\": \"REPLACE_ME\" \n
       } \n
     ], \n
     \"accessories\": [] \n
     }' > ~/.homebridge/config.json"
 before_script:
   - npm install -g eslint
-  - sed -i "s/\"modulePath\": \"\"/\"modulePath\": \"$TRAVIS_BUILD_DIR\"/g" ~/.homebridge/config.json
 addons:
   apt:
     sources:
