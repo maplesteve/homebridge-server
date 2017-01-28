@@ -25,6 +25,7 @@ before_install:
     }' > ~/.homebridge/config.json"
 before_script:
   - npm install -g eslint
+  - sed -i "s/\"modulePath\": \"\"/\"modulePath\": \"$TRAVIS_BUILD_DIR\"/g" ~/.homebridge/config.json
 addons:
   apt:
     sources:
