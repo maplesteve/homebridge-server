@@ -47,6 +47,7 @@ cp scripts/$HOMEBRIDGE_CONFIG "$TEST_CONFIG_DIR/config.json"
 # cat "$TEST_CONFIG_DIR/config.json"
 # sed -i "s/\"modulePath\": \"\"/\"modulePath\": \"$TRAVIS_BUILD_DIR\"/g" ~/.homebridge/config.json
 # sed -i .bak "s/REPLACE_ME/$TRAVIS_BUILD_DIR/g" "$TEST_CONFIG_DIR/config.json"
+# sed "s/REPLACE_ME/$HOMEBRIDGE_CONFIG/g" "$TEST_CONFIG_DIR/config.json" >"$TEST_CONFIG_DIR/config_new.json"
 # echo "--- after ---"
 # cat "$TEST_CONFIG_DIR/config.json"
 # exit 0
@@ -58,8 +59,9 @@ if [ "$TRAVIS_BUILD_DIR" != "" ]; then
         # sed -i "s/\"modulePath\": \"\"/\"modulePath\": \"$TRAVIS_BUILD_DIR\"/g" ~/.homebridge/config.json
         # sed -i s/REPLACE_ME/$TRAVIS_BUILD_DIR ~/.homebridge/config.json
         cp ~/.homebridge/config.json "$TEST_CONFIG_DIR/config.json"
-        sed -i .bak "s/REPLACE_ME/TRAVIS_BUILD_DIR/g" "$TEST_CONFIG_DIR/config.json"
-        cp ~/.homebridge/config.json "$TEST_CONFIG_DIR/config.json"
+        sed "s/REPLACE_ME/$TRAVIS_BUILD_DIR/g" "$TEST_CONFIG_DIR/config.json" >"$TEST_CONFIG_DIR/config_new.json"
+        # cp ~/.homebridge/config.json "$TEST_CONFIG_DIR/config.json"
+        mv "$TEST_CONFIG_DIR/config_new.json" "$TEST_CONFIG_DIR/config.json"
         echo "replaced travis-special config"
         cat "$TEST_CONFIG_DIR/config.json"
     fi
