@@ -6,7 +6,7 @@ env:
 before_install:
   - "sudo apt-get install libavahi-compat-libdnssd-dev"
   - "mkdir ~/.homebridge"
-  - 'echo "{ \n
+  - "sh -c 'echo \"{ \n
     \"bridge\": { \n
       \"name\": \"Test-Bridge\", \n
       \"username\": \"CC:22:3D:E3:CE:31\", \n
@@ -22,7 +22,7 @@ before_install:
       } \n
     ], \n
     \"accessories\": [] \n
-    }" > ~/.homebridge/config.json'
+    }\" > ~/.homebridge/config.json'"
 before_script:
   - npm install -g eslint
 addons:
