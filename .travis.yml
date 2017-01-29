@@ -6,25 +6,26 @@ env:
 before_install:
   - "sudo apt-get install libavahi-compat-libdnssd-dev"
   - "mkdir ~/.homebridge"
-  - "sh -c 'echo \"{ \n
-    \'bridge\': { \n
-      \'name\': \'Test-Bridge\', \n
-      \'username\': \'CC:22:3D:E3:CE:31\', \n
-      \'port\': 51826, \n
-      \'pin\': \'130-61-401\' \n
+  - "echo '{ \n
+    \"bridge\": { \n
+      \"name\": \"Test-Bridge\", \n
+      \"username\": \"CC:22:3D:E3:CE:31\", \n
+      \"port\": 51826, \n
+      \"pin\": \"130-61-401\" \n
     }, \n
-    \'platforms\': [ \n
+    \"platforms\": [ \n
       { \n
-      \'platform\': \'Server\', \n
-      \'port\': 8765, \n
-      \'name\': \'Homebridge Server\', \n
-      \'modulePath\': \'REPLACE_ME\' \n
+      \"platform\": \"Server\", \n
+      \"port\": 8765, \n
+      \"name\": \"Homebridge Server\", \n
+      \"modulePath\": \"REPLACE_ME\" \n
       } \n
     ], \n
-    \'accessories\': [] \n
-    }\" > ~/.homebridge/config.json'"
+    \"accessories\": [] \n
+    }' > ~/.homebridge/config.json"
 before_script:
   - npm install -g eslint
+  - sh -c "sed s/REPLACE_ME/$TRAVIS_BUILD_DIR/ ~/.homebridge/config.json >~/.homebridge/config_travis.json"
 addons:
   apt:
     sources:
