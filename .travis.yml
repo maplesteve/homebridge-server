@@ -5,6 +5,7 @@ env:
   - CXX=g++-4.8
 before_install:
   - "sudo apt-get install libavahi-compat-libdnssd-dev"
+  - "mkdir ~/.homebridge"
 before_script:
   - npm install -g eslint
 addons:
