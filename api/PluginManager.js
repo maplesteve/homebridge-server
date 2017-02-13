@@ -132,7 +132,7 @@ function getInstalledPlugins() {
     var plugins = [];
 
     var globalModulePath = require('global-modules') + "/";
-    var possiblePaths = [globalModulePath, path.resolve(__dirname, '..', '..')];
+    var possiblePaths = [globalModulePath, path.resolve(__dirname, '..', '..') + "/"];
 
     possiblePaths.forEach(function(modulePath) {
         if (! fs.existsSync(path.normalize(modulePath))) {
