@@ -8,7 +8,6 @@ module.exports = {
 
 // Internals
 var homebridgeAPI;
-var hbLog = function() {};       // eslint-disable-line
 
 //
 var _config = {};
@@ -33,9 +32,8 @@ var _accessoriesJSON = [];
  * [ConfigManager description]
  * @param {[type]} hbAPI [description]
  */
-function ConfigManager(hbAPI, log) {
+function ConfigManager(hbAPI) {
     homebridgeAPI = hbAPI;
-    hbLog = log;
     loadConfig(hbAPI);
 }
 
