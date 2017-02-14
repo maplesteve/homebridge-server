@@ -101,9 +101,14 @@ HttpAPI.prototype.saveBridgeConfig = function(req, res) {
     req.on('end', function () {
         var qs = require('querystring');
         var bodyJSON = qs.parse(body);
-        serverAPI.saveBridgeConfig(bodyJSON, function (result, error) {
-            res.setHeader("Content-Type", "application/json");
-            res.write(JSON.stringify({'success': result, 'msg': error}));
+        serverAPI.saveBridgeConfig(bodyJSON, function (success, msg) {
+            if (success) {
+                res.statusCode = 204;
+            } else {
+                res.statusCode = 400;
+                res.setHeader("Content-Type", "application/json");
+                res.write(JSON.stringify({'error': msg}));
+            }
             res.end();
         });
     });

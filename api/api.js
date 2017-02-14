@@ -60,7 +60,7 @@ API.prototype.saveBridgeConfig = function(configChanges, callback) {
     }
 
     if (!hasChanges) {
-        callback(true, "nothing changed");
+        callback(true, "");
         return;
     }
 

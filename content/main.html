@@ -23,8 +23,11 @@
         <script>
             $("#submitBridgeConfig").submit(function(event) {
                 event.preventDefault();
-                $.post( "/api/saveBridgeConfig", $( "#submitBridgeConfig" ).serialize(), function(result) {
-                    alert(result.msg);
+                $.post( "/api/saveBridgeConfig", $( "#submitBridgeConfig" ).serialize(), function() {
+                    alert("Saved config.json.");
+                })
+                .fail(function(err) {
+                    alert("Error while saving config.json:\n" + err.responseJSON.error);
                 });
             });
         </script>

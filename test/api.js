@@ -67,9 +67,10 @@ describe('Testing the JSON API', function() {
 
         it('Succeeds if nothing has changed', function(done) {
             api.post('/api/saveBridgeConfig')
-            .expect(200)
-            .end(function(saveErr) {
+            .expect(204)
+            .end(function(saveErr, saveRes) {
                 if (saveErr) { return done(saveErr); }
+                saveRes.body.should.be.empty;
                 api.get('/api/bridgeConfig')
                 .end(function(checkErr, checkRes) {
                     checkRes.body.should.be.eql(fixtureConf);
@@ -81,9 +82,10 @@ describe('Testing the JSON API', function() {
         it('Succeeds with change of bridgeName', function(done) {
             api.post('/api/saveBridgeConfig')
             .send("bridgeName=" + changesConf.bridgeName)
-            .expect(200)
-            .end(function(saveErr) {
+            .expect(204)
+            .end(function(saveErr, saveRes) {
                 if (saveErr) { return done(saveErr); }
+                saveRes.body.should.be.empty;
                 api.get('/api/bridgeConfig')
                 .end(function(checkErr, checkRes) {
                     checkRes.body.bridgePin.should.be.eql(fixtureConf.bridgePin);
@@ -97,10 +99,10 @@ describe('Testing the JSON API', function() {
         it('Doesn\'t overwrite username with empty string', function(done) {
             api.post('/api/saveBridgeConfig')
             .send("bridgeUsername=" + "")
-            .expect(200)
+            .expect(204)
             .end(function(saveErr, saveRes) {
                 if (saveErr) { return done(saveErr); }
-                saveRes.body.success.should.be.true;
+                saveRes.body.should.be.empty;
                 api.get('/api/bridgeConfig')
                 .end(function(checkErr, checkRes) {
                     checkRes.body.should.be.eql(fixtureConf);
@@ -112,9 +114,10 @@ describe('Testing the JSON API', function() {
         it('Succeeds with valid pin', function(done) {
             api.post('/api/saveBridgeConfig')
             .send("bridgePin=" + changesConf.bridgePin)
-            .expect(200)
-            .end(function(saveErr) {
+            .expect(204)
+            .end(function(saveErr, saveRes) {
                 if (saveErr) { return done(saveErr); }
+                saveRes.body.should.be.empty;
                 api.get('/api/bridgeConfig')
                 .end(function(checkErr, checkRes) {
                     checkRes.body.bridgePin.should.be.eql(changesConf.bridgePin);
@@ -128,10 +131,11 @@ describe('Testing the JSON API', function() {
         it('Fails with invalid pin', function(done) {
             api.post('/api/saveBridgeConfig')
             .send("bridgePin=" + "invalid")
-            .expect(200)
+            .expect(400)
+            .expect('Content-Type', 'application/json')
             .end(function(saveErr, saveRes) {
                 if (saveErr) { return done(saveErr); }
-                saveRes.body.success.should.be.false;
+                saveRes.body.should.have.property('error').with.length.above(5);
                 api.get('/api/bridgeConfig')
                 .end(function(checkErr, checkRes) {
                     checkRes.body.should.be.eql(fixtureConf);
@@ -143,10 +147,10 @@ describe('Testing the JSON API', function() {
         it('Succeeds with valid username', function(done) {
             api.post('/api/saveBridgeConfig')
             .send("bridgeUsername=" + changesConf.bridgeUsername)
-            .expect(200)
+            .expect(204)
             .end(function(saveErr, saveRes) {
                 if (saveErr) { return done(saveErr); }
-                saveRes.body.success.should.be.true;
+                saveRes.body.should.be.empty;
                 api.get('/api/bridgeConfig')
                 .end(function(checkErr, checkRes) {
                     checkRes.body.bridgePin.should.be.eql(fixtureConf.bridgePin);
@@ -160,10 +164,11 @@ describe('Testing the JSON API', function() {
         it('Fails with invalid username', function(done) {
             api.post('/api/saveBridgeConfig')
             .send("bridgeUsername=" + "invalid")
-            .expect(200)
+            .expect(400)
+            .expect('Content-Type', 'application/json')
             .end(function(saveErr, saveRes) {
                 if (saveErr) { return done(saveErr); }
-                saveRes.body.success.should.be.false;
+                saveRes.body.should.have.property('error').with.length.above(5);
                 api.get('/api/bridgeConfig')
                 .end(function(checkErr, checkRes) {
                     checkRes.body.should.be.eql(fixtureConf);
