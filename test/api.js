@@ -36,9 +36,7 @@ describe('Testing the JSON API', function() {
             .expect(200)
             .expect('Content-Type', 'application/json')
             .end(function(err, res) {
-                if (err) {
-                    return done(err);
-                }
+                if (err) return done(err);
                 res.body.should.be.a('object');
                 res.body.should.have.property('bridgePin');
                 res.body.should.have.property('bridgeName');
@@ -182,9 +180,7 @@ describe('Testing the JSON API', function() {
             .expect(200)
             .expect('Content-Type', 'application/json')
             .end(function(err, res) {
-                if (err) {
-                    return done(err);
-                }
+                if (err) return done(err);
                 res.body.should.be.a('array');
                 res.body.length.should.be.eql(1);
                 res.body[0].should.have.property('platform');
@@ -201,9 +197,7 @@ describe('Testing the JSON API', function() {
             .expect(200)
             .expect('Content-Type', 'application/json')
             .end(function(err, res) {
-                if (err) {
-                    return done(err);
-                }
+                if (err) return done(err);
                 res.body.should.be.a('array');
                 res.body.length.should.be.eql(0);
                 done();
@@ -217,9 +211,7 @@ describe('Testing the JSON API', function() {
             .expect(200)
             .expect('Content-Type', 'application/json')
             .end(function(err, res) {
-                if (err) {
-                    return done(err);
-                }
+                if (err) return done(err);
                 res.body.should.be.a('array');
                 res.body[0].should.have.property('name');
                 res.body[0].should.have.property('version');
@@ -274,11 +266,7 @@ describe('Testing the JSON API', function() {
             api.post('/api/addPlatformConfig')
             .send("platformConfig=" + JSON.stringify(newConfig.platformConfig))
             .send("plugin=" + newConfig.plugin)
-            .expect(200)
-            .end(function functionName(err, res) {
-                if (err) { return done(err); }
-                done();
-            });
+            .expect(200, done);
         });
         it('can fetch the added platform', function(done) {
             api.get('/api/installedPlatforms')
