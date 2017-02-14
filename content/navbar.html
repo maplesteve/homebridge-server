@@ -21,9 +21,12 @@
     </div>
     <script>
         function callAPI(call) {
-            $.getJSON( call, function( result ) {
-                var message = result.success ? "OK. " : "Error: ";
-                alert(message + result.msg);
+            $.getJSON(call)
+            .done(function(result) {
+                alert("Created backup file: " + result.path);
+            })
+            .fail(function(err) {
+                alert("Error creating backup file: " + err);
             });
         }
     </script>

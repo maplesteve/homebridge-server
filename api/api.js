@@ -71,14 +71,6 @@ API.prototype.saveBridgeConfig = function(configChanges, callback) {
 }
 
 
-API.prototype.createConfigBackup = function (callback) {
-    confMgr.backupConfigFile(function(success, msg) {
-        callback(success, msg);
-        return;
-    });
-};
-
-
 /**
  * [getInstalledPlatforms description]
  * @param  {Function} callback [description]

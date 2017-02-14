@@ -9,6 +9,7 @@ module.exports = {
 var serverAPI;
 var infoEmitter;
 var logProvider;
+var confMgr;
 
 function HttpAPI(HomebridgeAPI, log, infoOptions, hbsConfig) {
     var pathLib = require('path');
@@ -21,6 +22,10 @@ function HttpAPI(HomebridgeAPI, log, infoOptions, hbsConfig) {
 
     var LogProviderLib = require(pathLib.resolve(__dirname, 'LogProvider.js'));
     logProvider = new LogProviderLib.LogProvider(hbsConfig.log);
+
+    var ConfigManagerLib = require(pathLib.resolve(__dirname, 'ConfigManager.js'));
+    confMgr = new ConfigManagerLib.ConfigManager(HomebridgeAPI);
+
 }
 
 HttpAPI.prototype.bridgeInfo = function(res) {
@@ -105,9 +110,15 @@ HttpAPI.prototype.saveBridgeConfig = function(req, res) {
 }
 
 HttpAPI.prototype.createConfigBackup = function(res) {
-    serverAPI.createConfigBackup(function (result, error) {
+    confMgr.backupConfigFile(function (success, msg) {
         res.setHeader("Content-Type", "application/json");
-        res.write(JSON.stringify({'success': result, 'msg': error}));
+        if (success) {
+            res.statusCode = 200;
+            res.write(JSON.stringify({'path': msg}));
+        } else {
+            res.statusCode = 400;
+            res.write(JSON.stringify({'error': msg}));
+        }
         res.end();
     });
 }
