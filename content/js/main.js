@@ -57,14 +57,14 @@ function removePlatformConfig() {
     var platformID = $("#confirmRemoveModalPlatformID").val();
     $('#confirmRemoveModalStatus').text("Updateing config.json...");
 
-    $.getJSON("/api/removePlatform?" + platformID, function(result) {
-        if (result.success) {
-            $('#confirmRemoveModalStatus').text("Updating config.json... Done.");
-            listPlatforms();
-            $('#confirmRemoveModal').modal('hide');
-        } else {
-            $('#confirmRemoveModalStatus').text("Failed: " + result.msg);
-        }
+    $.getJSON("/api/removePlatform?" + platformID)
+    .done(function() {
+        $('#confirmRemoveModalStatus').text("Updating config.json... Done.");
+        listPlatforms();
+        $('#confirmRemoveModal').modal('hide');
+    })
+    .fail(function(err) {
+        $('#confirmRemoveModalStatus').text("Failed: " + err.responseJSON.error);
     });
 }
 

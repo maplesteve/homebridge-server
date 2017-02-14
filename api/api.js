@@ -174,12 +174,6 @@ API.prototype.addPlatformConfig = function(newConfig, callback) {
     });
 }
 
-API.prototype.removePlatformConfig = function(platformID, callback) {
-    confMgr.removePlatformConfig(platformID, function(success, msg) {
-        callback(success, msg);
-        return;
-    });
-}
 
 /**
  * [addAccessoryConfig description]

@@ -180,9 +180,16 @@ HttpAPI.prototype.restartHomebridge = function(res, config) {
 
 HttpAPI.prototype.removePlatformConfig = function(req, res) {
     var platformID = require('url').parse(req.url).query;
-    serverAPI.removePlatformConfig(platformID, function(success, msg) {
+    confMgr.removePlatformConfig(platformID, function(success, msg) {
         res.setHeader("Content-Type", "application/json");
-        res.end(JSON.stringify({'success': success, 'msg': msg}));
+        if (success) {
+            res.statusCode = 200;
+            res.write(JSON.stringify({'msg': msg}));
+        } else {
+            res.statusCode = 400;
+            res.write(JSON.stringify({'error': msg}));
+        }
+        res.end();
     })
 }
 
@@ -217,11 +224,11 @@ HttpAPI.prototype.updatePlatformConfig = function(req, res) {
     req.on('end', function () {
         var qs = require('querystring');
         var parts = qs.parse(body);
-        serverAPI.removePlatformConfig(parts.configID, function(success, msg) {
+        confMgr.removePlatformConfig(parts.configID, function(success, msg) {
             if (!success) {
                 res.setHeader("Content-Type", "application/json");
                 res.statusCode = 400;
-                res.end(JSON.stringify({"success": false, "msg": msg}));
+                res.end(JSON.stringify({"error": msg}));
                 return;
             }
             delete parts.configID;

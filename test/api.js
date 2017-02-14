@@ -289,7 +289,8 @@ describe('Testing the JSON API', function() {
             .expect(200)
             .end(function(err, res) {
                 if (err) { return done(err); }
-                res.body.success.should.be.true;
+                res.body.should.have.property('msg').with.length.above(10);
+                res.body.should.not.have.property('error');
                 done();
             });
         })
@@ -305,10 +306,11 @@ describe('Testing the JSON API', function() {
         })
         it('Calling removePlatform with a invalid platform id fails', function(done) {
             api.get('/api/removePlatform?' + 'invalid')
-            .expect(200)
+            .expect(400)
             .end(function(err, res) {
                 if (err) { return done(err); }
-                res.body.success.should.be.false;
+                res.body.should.have.property('error').with.length.above(10);
+                res.body.should.not.have.property('msg');
                 done();
             });
         })
