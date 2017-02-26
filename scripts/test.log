@@ -1,0 +1,264 @@
+Feb 26 00:30:00 sembp newsyslog[13524]: logfile turned over
+Feb 26 00:30:00 sembp newsyslog[13524]: logfile turned over
+Sun Feb 26 00:31:51.898 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:31:51.898 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:32:18.577 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:32:18.577 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:32:34.704 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:32:34.704 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:33:01.629 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:33:01.629 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:33:17.800 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:33:17.800 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:33:28.677 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:33:28.677 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:34:38.963 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:34:38.963 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:35:05.776 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:35:05.776 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:35:21.904 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:35:21.904 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:35:32.793 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:35:32.793 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:36:37.044 <kernel> IO80211Interface::updateReport _peerManager is missing
+Sun Feb 26 00:36:37.044 <kernel> IO80211Interface::updateReport _peerManager is missing
+Sun Feb 26 00:36:43.068 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:36:43.068 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:37:09.902 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:37:09.902 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:37:26.132 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:37:26.132 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:37:52.961 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:37:52.961 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:38:09.231 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:38:09.231 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:38:20.005 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:38:20.005 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:39:30.400 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:39:30.400 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:39:57.134 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:39:57.134 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:40:13.281 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:40:13.281 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:40:24.160 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:40:24.160 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:40:25.681 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:40:25.681 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:40:51.811 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:40:51.811 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:41:08.437 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:41:08.437 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:41:34.868 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:41:34.868 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:41:51.194 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:41:51.194 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:42:17.935 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:42:17.935 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:42:34.251 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:42:34.251 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:43:01.020 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:43:01.020 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:43:17.313 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:43:17.313 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:43:44.067 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:43:44.067 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:44:00.308 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:44:00.308 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:44:27.116 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:44:27.116 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:44:43.362 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:44:43.362 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:45:10.163 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:45:10.163 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:45:26.355 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:45:26.355 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:45:37.209 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:45:37.209 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:46:37.053 <kernel> IO80211Interface::updateReport _peerManager is missing
+Sun Feb 26 00:46:37.053 <kernel> IO80211Interface::updateReport _peerManager is missing
+Sun Feb 26 00:46:47.520 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:46:47.520 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:47:14.299 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:47:14.299 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:47:30.464 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:47:30.464 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:47:41.333 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:47:41.333 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:48:51.629 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:48:51.629 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:49:18.413 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:49:18.413 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:49:34.575 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:49:34.575 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:49:45.435 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:49:45.435 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:50:55.744 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:50:55.744 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:51:22.519 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:51:22.519 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:51:38.689 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:51:38.689 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:51:49.553 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:51:49.553 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:52:59.854 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:52:59.854 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:53:26.054 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:53:26.054 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:53:42.900 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:53:42.900 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:54:09.150 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:54:09.150 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:54:10.510 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:54:10.510 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:54:37.558 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:54:37.558 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:54:53.688 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:54:53.688 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:55:20.600 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:55:20.600 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:55:36.710 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:55:36.710 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:55:47.631 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:55:47.631 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:56:37.051 <kernel> IO80211Interface::updateReport _peerManager is missing
+Sun Feb 26 00:56:37.051 <kernel> IO80211Interface::updateReport _peerManager is missing
+Sun Feb 26 00:56:57.876 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:56:57.876 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:57:24.778 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:57:24.778 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:57:40.973 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:57:40.973 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:57:51.828 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:57:51.828 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:59:02.143 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:59:02.143 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:59:20.828 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:59:20.828 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 00:59:34.286 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 00:59:34.286 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:00:01.132 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:00:01.132 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:00:17.317 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:00:17.317 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:00:28.162 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:00:28.162 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:01:38.514 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:01:38.514 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:01:49.268 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:01:49.268 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:04:51.616 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:04:51.616 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:05:04.840 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:05:04.840 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:05:42.004 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:05:42.004 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:05:52.523 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:05:52.523 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:06:37.066 <kernel> IO80211Interface::updateReport _peerManager is missing
+Sun Feb 26 01:06:37.066 <kernel> IO80211Interface::updateReport _peerManager is missing
+Sun Feb 26 01:15:13.314 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events.private, will not register for event type 100
+Sun Feb 26 01:15:13.314 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events.private, will not register for event type 100
+Sun Feb 26 01:15:13.315 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 7
+Sun Feb 26 01:15:13.315 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 7
+Sun Feb 26 01:15:13.315 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events.private, will not register for event type 101
+Sun Feb 26 01:15:13.315 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events.private, will not register for event type 101
+Sun Feb 26 01:15:13.316 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 1
+Sun Feb 26 01:15:13.316 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 1
+Sun Feb 26 01:15:13.316 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 2
+Sun Feb 26 01:15:13.316 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 2
+Sun Feb 26 01:15:13.316 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 5
+Sun Feb 26 01:15:13.316 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 5
+Sun Feb 26 01:15:13.317 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 6
+Sun Feb 26 01:15:13.317 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 6
+Sun Feb 26 01:15:27.267 <kernel> wl0: MDNS: 0 SRV Recs, 0 TXT Recs
+Sun Feb 26 01:15:27.267 <kernel> wl0: MDNS: 0 SRV Recs, 0 TXT Recs
+Sun Feb 26 01:15:27.267 <kernel> wl0: MDNS: IPV4 Addr: 10.0.1.184
+Sun Feb 26 01:15:27.267 <kernel> wl0: MDNS: IPV4 Addr: 10.0.1.184
+Sun Feb 26 01:15:27.267 <kernel> wl0: MDNS: IPV6 Addr: fe80:0:0:0:14b7:6076:f65:5913
+Sun Feb 26 01:15:27.267 <kernel> wl0: MDNS: IPV6 Addr: fe80:0:0:0:14b7:6076:f65:5913
+Sun Feb 26 01:15:27.267 <kernel> wl0: setup_keepalive: Local IP: 10.0.1.184
+Sun Feb 26 01:15:27.267 <kernel> wl0: setup_keepalive: Local IP: 10.0.1.184
+Sun Feb 26 01:15:27.267 <kernel> wl0: setup_keepalive: Local port: 59586, Remote port: 5223
+Sun Feb 26 01:15:27.267 <kernel> wl0: setup_keepalive: Local port: 59586, Remote port: 5223
+Sun Feb 26 01:15:27.267 <kernel> wl0: setup_keepalive: Remote IP: 17.130.144.93
+Sun Feb 26 01:15:27.267 <kernel> wl0: setup_keepalive: Remote IP: 17.130.144.93
+Sun Feb 26 01:15:27.267 <kernel> wl0: setup_keepalive: Seq: 2764184013, Ack: 2493669652, Win size: 4096
+Sun Feb 26 01:15:27.267 <kernel> wl0: setup_keepalive: Seq: 2764184013, Ack: 2493669652, Win size: 4096
+Sun Feb 26 01:15:27.267 <kernel> wl0: setup_keepalive: interval 900, retry_interval 30, retry_count 10
+Sun Feb 26 01:15:27.267 <kernel> wl0: setup_keepalive: interval 900, retry_interval 30, retry_count 10
+Sun Feb 26 01:38:17.006 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[enable], in_fatal_err[0]
+Sun Feb 26 01:38:17.006 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[enable], in_fatal_err[0]
+Sun Feb 26 01:38:17.006 <kernel> AirPort_Brcm43xx::syncPowerState: WWEN[enabled]
+Sun Feb 26 01:38:17.006 <kernel> AirPort_Brcm43xx::syncPowerState: WWEN[enabled]
+Sun Feb 26 01:38:17.006 <kernel> wl0: leaveModulePoweredForOffloads: Wi-Fi will stay on.
+Sun Feb 26 01:38:17.006 <kernel> wl0: leaveModulePoweredForOffloads: Wi-Fi will stay on.
+Sun Feb 26 01:38:17.006 <kernel> wl0: wl_update_tcpkeep_seq: Original Seq: 2764184013, Ack: 2493669652, Win size: 4096
+Sun Feb 26 01:38:17.006 <kernel> wl0: wl_update_tcpkeep_seq: Original Seq: 2764184013, Ack: 2493669652, Win size: 4096
+Sun Feb 26 01:38:17.006 <kernel> wl0: wl_update_tcpkeep_seq: Updated seq/ack/win from UserClient Seq 2764185186, Ack 2493669652, Win size 739
+Sun Feb 26 01:38:17.006 <kernel> wl0: wl_update_tcpkeep_seq: Updated seq/ack/win from UserClient Seq 2764185186, Ack 2493669652, Win size 739
+Sun Feb 26 01:38:17.257 <airportd[60]> Unable to set country code (Device power is off)
+Sun Feb 26 01:38:17.257 <airportd[60]> Unable to set country code (Device power is off)
+Sun Feb 26 01:38:17.673 <kernel> IO80211Interface::updateReport _peerManager is missing
+Sun Feb 26 01:38:17.673 <kernel> IO80211Interface::updateReport _peerManager is missing
+Sun Feb 26 01:38:18.519 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[disable], in_fatal_err[0]
+Sun Feb 26 01:38:18.519 <kernel> AirPort_Brcm43xx::platformWoWEnable: WWEN[disable], in_fatal_err[0]
+Sun Feb 26 01:38:18.693 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:38:18.693 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 1
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 1
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 2
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 2
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 3
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 3
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 5
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 5
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 6
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 6
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 7
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 7
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 8
+Sun Feb 26 01:38:18.853 <airportd[60]> ERROR: WiFiProxy (460) is not entitled for com.apple.wifi.events, but allowing anyways for event type 8
+Sun Feb 26 01:38:18.961 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events.private, will not register for event type 100
+Sun Feb 26 01:38:18.961 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events.private, will not register for event type 100
+Sun Feb 26 01:38:18.961 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events.private, will not register for event type 101
+Sun Feb 26 01:38:18.961 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events.private, will not register for event type 101
+Sun Feb 26 01:38:18.962 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 1
+Sun Feb 26 01:38:18.962 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 1
+Sun Feb 26 01:38:18.962 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 2
+Sun Feb 26 01:38:18.962 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 2
+Sun Feb 26 01:38:18.962 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 7
+Sun Feb 26 01:38:18.962 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 7
+Sun Feb 26 01:38:18.963 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 5
+Sun Feb 26 01:38:18.963 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 5
+Sun Feb 26 01:38:18.963 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 6
+Sun Feb 26 01:38:18.963 <airportd[60]> ERROR: loginwindow (98) is not entitled for com.apple.wifi.events, but allowing anyways for event type 6
+Sun Feb 26 01:38:21.727 <kernel> wl0: setAWDL_PEER_TRAFFIC_REGISTRATION: active 1, roam_off: 1, err 0 roam_start_set 0 forced_roam_set 0
+Sun Feb 26 01:38:21.727 <kernel> wl0: setAWDL_PEER_TRAFFIC_REGISTRATION: active 1, roam_off: 1, err 0 roam_start_set 0 forced_roam_set 0
+Sun Feb 26 01:38:22.164 <kernel> wl0: setAWDL_PEER_TRAFFIC_REGISTRATION: active 0, roam_off: 0, err 0 roam_start_set 0 forced_roam_set 0
+Sun Feb 26 01:38:22.164 <kernel> wl0: setAWDL_PEER_TRAFFIC_REGISTRATION: active 0, roam_off: 0, err 0 roam_start_set 0 forced_roam_set 0
+Sun Feb 26 01:38:40.873 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:38:40.873 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:38:40.909 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:38:40.909 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:38:54.110 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:38:54.110 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:38:58.040 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:38:58.040 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:39:08.276 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:39:08.276 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:39:18.910 <kernel> IO80211Interface::updateReport _peerManager is missing
+Sun Feb 26 01:39:18.910 <kernel> IO80211Interface::updateReport _peerManager is missing
+Sun Feb 26 01:39:28.470 <kernel> Setting BTCoex Config: enable_2G:1, profile_2g:0, enable_5G:1, profile_5G:0
+Sun Feb 26 01:39:28.470 <kernel> Setting BTCoex Config: enable_2G:1, profile_2g:0, enable_5G:1, profile_5G:0
+Sun Feb 26 01:40:19.193 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:40:19.193 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:40:45.429 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:40:45.429 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:41:01.776 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:41:01.776 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:41:28.489 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:41:28.489 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:41:44.832 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:41:44.832 <kernel> AWDL Sync Enabled 1, data path state[1]
+Sun Feb 26 01:41:55.534 <kernel> AWDL Sync Enabled 0, data path state[1]
+Sun Feb 26 01:41:55.534 <kernel> AWDL Sync Enabled 0, data path state[1]

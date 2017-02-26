@@ -46,6 +46,9 @@ fi
 # Copy the config.json fixture
 cp scripts/$HOMEBRIDGE_CONFIG "$TEST_CONFIG_DIR/config.json"
 
+# Copy the log file fixture
+cp scripts/test.log "$TEST_CONFIG_DIR/test.log"
+
 # Set the directory if running on travis
 if [ "$TRAVIS_BUILD_DIR" != "" ]; then
     echo "We're running on travis-ci! Setting HOMEBRIDGE_SERVER_DIR to $TRAVIS_BUILD_DIR"

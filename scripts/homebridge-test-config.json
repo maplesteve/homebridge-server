@@ -17,7 +17,7 @@
             "platform": "Server",
             "port": 8765,
             "name": "Homebridge Server",
-            "log": ["/var/log/nonexisting.log", "/var/log/system.log", "/var/log/homebridge.err"],
+            "log": ["/var/log/nonexisting.log", "/tmp/homebridge-server-test/test.log", "/var/log/homebridge.err"],
             "restart": "killall homebridge"
         }
     ]

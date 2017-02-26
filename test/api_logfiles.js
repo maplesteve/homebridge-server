@@ -44,7 +44,6 @@ describe('Testing the \'logfiles\' API (/api/logfiles)', function() {
 
     describe('Getting a specific page (GET /api/logfiles/{id}/paging/{page})', function() {
         it('Succeeds for a valid logFileID and valid page', function(done) {
-            // This fails when the test log just rotated... Use a fixture log file in scripts folder
             api.get('/api/logfiles/1/paging/2')
             .expect(200)
             .end(function(err, res) {
