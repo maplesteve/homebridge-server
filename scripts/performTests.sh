@@ -1,5 +1,10 @@
 #!/bin/bash
 
+ARG=$D
+if [ "$ARG" == "-D" ]; then
+    DEBUG=1
+fi
+
 HOMEBRIDGE_BINARY="homebridge"
 HOMEBRIDGE_SERVER_DIR="../"
 HOMEBRIDGE_CONFIG="homebridge-test-config.json"
@@ -49,11 +54,18 @@ fi
 
 # Start homebridge
 echo "Starting homebridge: $HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR"
-$HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR >/dev/null 2>&1 &
 
-# Give homebridge 5 seconds to be ready
-echo "Waiting 5 seconds for homebridge to start..."
-sleep 5
+if [ $DEBUG ]; then
+    echo "... in DEBUG mode..."
+    $HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR &
+else
+    echo "... in normal mode..."
+    $HOMEBRIDGE_BINARY -U $TEST_CONFIG_DIR -P $HOMEBRIDGE_SERVER_DIR >/dev/null 2>&1 &
+fi
+
+# Give homebridge 2 seconds to be ready
+echo "Waiting 2 seconds for homebridge to start..."
+sleep 2
 
 # Tests
 echo "Testing:"
@@ -63,7 +75,7 @@ echo "========"
 ## homebridge -U ~/.homebridge -P . > /dev/null 2>&1 & sleep 10; ( curl -Is http://127.0.0.1:8765/remove | head -1 ); kill $!
 
 echo "1) Lint"
-eslint ./*.js api/*.js content/*.js
+eslint ./*.js api/*.js content/*.js test/*.js
 EXIT1=$?
 
 echo "2) mocha"

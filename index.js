@@ -1,154 +1,79 @@
 /* eslint-env node */
-var Service, Characteristic, LastUpdate, HomebridgeAPI;       // eslint-disable-line
+var HomebridgeAPI;
 
 module.exports = function(homebridge) {
-    Service = homebridge.hap.Service;
-    Characteristic = homebridge.hap.Characteristic;
     HomebridgeAPI = homebridge;
     homebridge.registerPlatform("homebridge-server", "Server", ServerPlatform);
+    homebridge.registerAccessory("homebridge-server", "ServerAcc", ServerAccessory);
 }
 
+function ServerAccessory(log, config) {
+    this.log = log;
+    this.name = config["name"];
+ }
+
+ ServerAccessory.prototype.getServices = function() {
+     return [];
+ }
+
 function ServerPlatform(log, config) {
-    var fs = require('fs');
-    var http = require('http');
-    var path = require('path');
+    var express = require('express');
+    var server = express();
 
-    function reloadConfig(res) {
-        loadConfig();       // eslint-disable-line
-        printMainPage(res);       // eslint-disable-line
-    }
+    server.listen(config.port, function() {
+      var os = require('os');
+      var ifaces = os.networkInterfaces();
 
-    function saveConfig(res, backup) {       // eslint-disable-line
-        var newConfig = JSON.stringify(configJSON)       // eslint-disable-line
-            .replace(/\[,/g, '[')
-            .replace(/,null/g, '')
-            .replace(/null,/g, '')
-            .replace(/null/g, '')
-            .replace(/,,/g, ',')
-            .replace(/,\]/g, ']');
-        newConfig = JSON.stringify(JSON.parse(newConfig), null, 4);
-        if (backup != null) {
-            fs.writeFile(HomebridgeAPI.user.configPath() + '.bak', newConfig, "utf8", function(err, data) {       // eslint-disable-line
-                if (err) {
-                    return log(err);
-                }
-                res.write(Assets.headerHTML() + Assets.navBarHTML());
-                res.write("<div class='alert alert-success alert-dismissible fade in out'><a href='/' class='close' data-dismiss='success'>&times;</a><strong>Succes!</strong> Configuration saved!</div>");
-                res.end(Assets.footerHTML());
-            });
-        } else {
-            res.write(Assets.headerHTML() + Assets.navBarHTML());
-            res.write("<div class='alert alert-danger alert-dismissible fade in out'><a href='/' class='close' data-dismiss='alert'>&times;</a><strong>Note!</strong> Please restart Homebridge to activate your changes.</div>");
-            fs.writeFile(HomebridgeAPI.user.configPath(), newConfig, "utf8", reloadConfig(res));
-        }
-    }
-
-    //We need a function which handles requests and send response
-    function handleRequest(req, res) {
-        if (req.url.indexOf('/api/') !== -1) {
-            handleAPIRequest(req, res);
+      Object.keys(ifaces).forEach(function (ifname) {
+        ifaces[ifname].forEach(function (iface) {
+          if ('IPv4' !== iface.family || iface.internal !== false) {
             return;
-        }
+          }
+          log("is listening on: http://%s:%s", iface.address, config.port);
+        });
+      });
+    });
 
-        handleContentRequest(req, res);
-    }
 
+    var bodyParser = require('body-parser');
+    server.use(bodyParser.urlencoded({ extended: false }))
+    server.use(bodyParser.json());
 
-    var httpAPILib = require(path.resolve(__dirname, 'api', 'HttpAPI.js'));
+    var path = require('path');
+    var ConfigManagerLib = require(path.resolve(__dirname, 'api', 'ConfigManager.js'));
+    var confMgr = new ConfigManagerLib.ConfigManager(HomebridgeAPI);
+
+    var bridgeConfigRouterLib = require(path.resolve(__dirname, 'api', 'routes', 'bridgeConfig.js'));
+    server.use('/api/bridgeConfig', bridgeConfigRouterLib(HomebridgeAPI, confMgr));
+
+    var platformsRouterLib = require(path.resolve(__dirname, 'api', 'routes', 'platforms.js'));
+    server.use('/api/platforms', platformsRouterLib(HomebridgeAPI, confMgr));
+
+    var accessoriesRouterLib = require(path.resolve(__dirname, 'api', 'routes', 'accessories.js'));
+    server.use('/api/accessories', accessoriesRouterLib(confMgr));
+
+    var pluginsRouterLib = require(path.resolve(__dirname, 'api', 'routes', 'plugins.js'));
+    server.use('/api/plugins', pluginsRouterLib());
+
+    var logfilesRouterLib = require(path.resolve(__dirname, 'api', 'routes', 'logfiles.js'));
+    server.use('/api/logfiles', logfilesRouterLib(config.log));
 
     var infoOptions = {
         "updateFrequency" : 10000,
         "updateCheckFrequency" : 3600000
     }
-    var httpAPI = new httpAPILib.HttpAPI(HomebridgeAPI, log, infoOptions, config);
+    var bridgeInfoRouterLib = require(path.resolve(__dirname, 'api', 'routes', 'bridgeInfo.js'));
+    server.use('/api/bridgeInfo', bridgeInfoRouterLib(HomebridgeAPI, infoOptions));
 
-    /**
-     * [handleAPIRequest description]
-     * @param  {[type]} req [description]
-     * @param  {[type]} res [description]
-     * @return {[type]}     [description]
-     */
-    function handleAPIRequest(req, res) {
-        log("handleAPIRequest: " + req.url);
-        var path = require('url').parse(req.url).pathname;
-        switch (path) {
-            case '/api/bridgeInfo':
-                httpAPI.bridgeInfo(res);
-                break;
-            case '/api/bridgeConfig':
-                httpAPI.bridgeConfig(res);
-                break;
-            case '/api/installedPlatforms':
-                httpAPI.installedPlatforms(res);
-                break;
-            case '/api/accessories':
-                httpAPI.accessories(res);
-                break;
-            case '/api/removePlatform':
-                httpAPI.removePlatformConfig(req, res);
-                break;
-            case '/api/updatePlatform':
-                httpAPI.updatePlatformConfig(req, res);
-                break;
-            case '/api/searchPlugins':
-                httpAPI.searchPlugins(req, res);
-                break;
-            case '/api/installedPlugins':
-                httpAPI.installedPlugins(res);
-                break;
-            case '/api/saveBridgeConfig':
-                httpAPI.saveBridgeConfig(req, res);
-                break;
-            case '/api/createConfigBackup':
-                httpAPI.createConfigBackup(res);
-                break;
-            case '/api/installPlugin':
-                httpAPI.installPlugin(req, res);
-                break;
-            case '/api/updatePlugin':
-                httpAPI.updatePlugin(req, res);
-                break;
-            case '/api/removePlugin':
-                httpAPI.removePlugin(req, res);
-                break;
-            case '/api/restartHomebridge':
-                httpAPI.restartHomebridge(res, config);
-                break;
-            case '/api/addPlatformConfig':
-                httpAPI.addPlatformConfig(req, res);
-                break;
-            case '/api/addAccessoryConfig':
-                httpAPI.addAccessoryConfig(req, res);
-                break;
-            case '/api/logFileContent':
-                httpAPI.logFileContent(req, res);
-                break;
-            case '/api/subscribeToLogFileTail':
-                httpAPI.subscribeToLogFileTail(res);
-                break;
-            case '/api/unsubscribeFromLogFileTail':
-                httpAPI.unsubscribeFromLogFileTail(req, res);
-                break;
-            case '/api/logFileTail':
-                httpAPI.logFileTail(req, res);
-                break;
-            default:
-                log("unhandled API request: " + req);
-                res.statusCode = 404;
-                res.end();
-        }
-    }
+
+    server.get(/.*/, function (req, res) {
+        handleContentRequest(req, res);
+    })
 
 
     var AssetManagerLib = require(path.resolve(__dirname, 'api', 'AssetManager.js'));
     var Assets = new AssetManagerLib.AssetManager(log);
 
-    /**
-     * [handleContentRequest description]
-     * @param  {[type]} req [description]
-     * @param  {[type]} res [description]
-     * @return {[type]}     [description]
-     */
     function handleContentRequest(req, res) {
         log("handleContentRequest: " + req.url);
         // Assets.reload();   // uncomment when debugging to force reload without restarting the server.
@@ -213,39 +138,8 @@ function ServerPlatform(log, config) {
                 log("unhandled request: " + req.url);
                 res.statusCode = 404;
                 res.end();
-                // var url = req.url;
-                // if (url.indexOf('/remove') !== -1) {
-                //     object = url.replace('/remove', '');
-                //     if (object.indexOf('Platform') !== -1) {
-                //         platform = object.replace('Platform', '');
-                //         delete configJSON.platforms[platform];
-                //         log("Removed platform " + platform + ".");
-                //     } else if (object.indexOf('Accessory') !== -1) {
-                //         accessory = object.replace('Accessory', '');
-                //         delete configJSON.accessories[accessory];
-                //         log("Removed accessory " + accessory + ".");
-                //     }
-                //     saveConfig(res);
-                // }
         }
     }
-
-    // Launches the webserver and transmits the website by concatenating the precreated markup
-    var server = http.createServer(handleRequest);
-
-    server.listen(config.port, function() {
-      var os = require('os');
-      var ifaces = os.networkInterfaces();
-
-      Object.keys(ifaces).forEach(function (ifname) {
-        ifaces[ifname].forEach(function (iface) {
-          if ('IPv4' !== iface.family || iface.internal !== false) {
-            return;
-          }
-          log("is listening on: http://%s:%s", iface.address, config.port);
-        });
-      });
-    });
 }
 
 ServerPlatform.prototype.accessories = function(callback) {

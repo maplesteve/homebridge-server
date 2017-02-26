@@ -36,21 +36,11 @@ PluginManager.prototype.plugins = function() {
 
 
 PluginManager.prototype.search = function(query, callback) {
-    var pathLib = require('path');
-    var utilsLib = require(pathLib.resolve(__dirname, 'utils.js'));
-    var utils = new utilsLib.Utils();
-
-    var options = {
-        host: 'api.npms.io',
-        port: 443,
-        path: '/v2/search?q=' + (!query || 0 === query.length ? '' : query + '+') + 'keywords:homebridge-plugin+not:deprecated+not:insecure&size=250',
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
-    utils.getJSON(options, function(statusCode, result) {
-        var results = result.results;
+    var request = require('request-json');
+    var client = request.createClient('https://api.npms.io/');
+    var queryParam = (!query || 0 === query.length ? '' : query + '+') + 'keywords:homebridge-plugin+not:deprecated+not:insecure&size=250';
+    client.get('/v2/search?q=' + queryParam, null, function(err, res, body) {
+        var results = body.results;
 
         // Check for each result if already installed
         // TODO: this is inefficient for sites with a lot of plugins...
@@ -72,8 +62,12 @@ function npmOperation(options, callback) {
     var spawn = require('child_process').spawn;
     var npmProcess = spawn('npm', options);
 
+    npmProcess.on('exit', function (code, signal) {
+        callback(true, "code: " + "signal: " + signal, true);
+    });
+
     npmProcess.stdout.on('data', function (data) {
-        callback(false, data, false);
+        callback(true, data, false);
     });
 
     npmProcess.stderr.on('data', function (data) {
@@ -172,20 +166,9 @@ function getInstalledPlugins() {
  * Updates _plugins with this information.
  */
 function enrichUsageInfo() {
-    var pathLib = require('path');
-    var utilsLib = require(pathLib.resolve(__dirname, 'utils.js'));
-    var utils = new utilsLib.Utils();
-
-    var options = {
-        // host: 'api.npms.io',
-        port: 8765,
-        path: '/api/installedPlatforms',
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
-    utils.getJSON(options, function(statusCode, platforms) {
+    var request = require('request-json');
+    var client = request.createClient('http://127.0.0.1:8765/');
+    client.get('/api/installedPlatforms', null, function(err, res, platforms) {
         for (var pluginID in _plugins) {
             for (var pf_id in platforms) {
                 if (platforms[pf_id]['hbServer_pluginName'] === _plugins[pluginID]["name"]) {
@@ -249,24 +232,12 @@ function enrichMetadata() {
  * @param  {Function} callback Called with the query result.
  */
 function fetchPluginMetaData(pluginName, pluginID, callback) {
-    var pathLib = require('path');
-    var utilsLib = require(pathLib.resolve(__dirname, 'utils.js'));
-    var utils = new utilsLib.Utils();
-
     var searchname = (pluginName.toLowerCase().replace(/ /g, '-'));
-
-    var options = {
-        host: 'api.npms.io',
-        port: 443,
-        path: '/v2/package/' + searchname,
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
-    utils.getJSON(options, function(statusCode, result) {
-        if (statusCode === 200) {
-            callback(result, pluginID);
+    var request = require('request-json');
+    var client = request.createClient('https://api.npms.io/');
+    client.get('/v2/package/' + searchname, null, function(err, res, packagInfo) {
+        if (res.statusCode === 200) {
+            callback(packagInfo, pluginID);
         }
     });
 }

@@ -1,10 +1,11 @@
 /* eslint-env node, mocha */
 
-var should = require('chai').should(),
+var should = require('chai').should(),       // eslint-disable-line
     supertest = require('supertest'),
     api = supertest('http://localhost:8765');
 
 var sizeOfHeaderNavbarFooter = 2519;
+
 
 describe('Testing the content requests', function() {
 
@@ -175,9 +176,6 @@ describe('Testing the content requests', function() {
         it('returns 404 error', function(done) {
             api.get('/imnotexisting.html')
             .expect(404, done);
-            // .end(function (err, res) {
-                // done();
-            // });
         });
     });
 });
