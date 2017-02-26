@@ -27,9 +27,9 @@ describe('Testing the content requests', function() {
         });
     });
 
-    describe('/listInstallablePlugins', function() {
-        it('returns the main listInstallablePlugins page', function(done) {
-            api.get('/')
+    describe('/plugins.html', function() {
+        it('returns the main plugins page', function(done) {
+            api.get('/plugins.html')
             .expect(200)
             .expect('Content-Type', /html/)
             .end(function(err, res) {
@@ -45,9 +45,9 @@ describe('Testing the content requests', function() {
         });
     });
 
-    describe('/addPlatform', function() {
+    describe('/addPlatform.html', function() {
         it('returns the addPlatform HTML page', function(done) {
-            api.get('/addPlatform')
+            api.get('/addPlatform.html')
             .expect(200)
             .expect('Content-Type', /html/)
             .end(function(err, res) {
@@ -63,9 +63,9 @@ describe('Testing the content requests', function() {
         });
     });
 
-    describe('/addAccessory', function() {
+    describe('/addAccessory.html', function() {
         it('returns the addAccessory HTML page', function(done) {
-            api.get('/addAccessory')
+            api.get('/addAccessory.html')
             .expect(200)
             .expect('Content-Type', /html/)
             .end(function(err, res) {
@@ -85,7 +85,7 @@ describe('Testing the content requests', function() {
         it('returns /style.css', function(done) {
             api.get('/style.css')
             .expect(200)
-            .expect('Content-Type', 'text/css')
+            .expect('Content-Type', /text\/css/)
             .end(function(err, res) {
                 if (err) {
                     return done(err);
@@ -103,7 +103,7 @@ describe('Testing the content requests', function() {
         it('/js/global.js returns javascript file', function(done) {
             api.get('/js/global.js')
             .expect(200)
-            .expect('Content-Type', 'text/javascript')
+            .expect('Content-Type', /javascript/)
             .end(function(err, res) {
                 if (err) { return done(err); }
                 res.text.should.have.length.of.at.least(10);
@@ -113,7 +113,7 @@ describe('Testing the content requests', function() {
         it('/js/plugins.js returns javascript file', function(done) {
             api.get('/js/plugins.js')
             .expect(200)
-            .expect('Content-Type', 'text/javascript')
+            .expect('Content-Type', /javascript/)
             .end(function(err, res) {
                 if (err) { return done(err); }
                 res.text.should.have.length.of.at.least(10);
@@ -123,7 +123,7 @@ describe('Testing the content requests', function() {
         it('/js/showLog.js returns javascript file', function(done) {
             api.get('/js/showLog.js')
             .expect(200)
-            .expect('Content-Type', 'text/javascript')
+            .expect('Content-Type', /javascript/)
             .end(function(err, res) {
                 if (err) { return done(err); }
                 res.text.should.have.length.of.at.least(10);
@@ -133,7 +133,7 @@ describe('Testing the content requests', function() {
         it('/js/main.js returns javascript file', function(done) {
             api.get('/js/main.js')
             .expect(200)
-            .expect('Content-Type', 'text/javascript')
+            .expect('Content-Type', /javascript/)
             .end(function(err, res) {
                 if (err) { return done(err); }
                 res.text.should.have.length.of.at.least(10);
@@ -143,7 +143,7 @@ describe('Testing the content requests', function() {
         it('/js/addAccessory.js returns javascript file', function(done) {
             api.get('/js/addAccessory.js')
             .expect(200)
-            .expect('Content-Type', 'text/javascript')
+            .expect('Content-Type', /javascript/)
             .end(function(err, res) {
                 if (err) { return done(err); }
                 res.text.should.have.length.of.at.least(10);
@@ -153,7 +153,7 @@ describe('Testing the content requests', function() {
         it('/js/addPlatform.js returns javascript file', function(done) {
             api.get('/js/addPlatform.js')
             .expect(200)
-            .expect('Content-Type', 'text/javascript')
+            .expect('Content-Type', /javascript/)
             .end(function(err, res) {
                 if (err) { return done(err); }
                 res.text.should.have.length.of.at.least(10);
@@ -163,7 +163,7 @@ describe('Testing the content requests', function() {
         it('/js/footer.js returns javascript file', function(done) {
             api.get('/js/footer.js')
             .expect(200)
-            .expect('Content-Type', 'text/javascript')
+            .expect('Content-Type', /javascript/)
             .end(function(err, res) {
                 if (err) { return done(err); }
                 res.text.should.have.length.of.at.least(10);

@@ -28,11 +28,17 @@
     "uuid": "^3.0.1"
   },
   "scripts": {
+    "pretest": "./node_modules/.bin/grunt",
     "test": ". ./scripts/performTests.sh"
   },
   "devDependencies": {
     "chai": "4.0.0-canary.1",
     "eventsource": "^0.2.1",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
     "mocha": "^3.2.0",
     "superagent": "^3.4.1",
     "supertest": "^2.0.1"
