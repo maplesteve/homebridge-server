@@ -58,6 +58,9 @@ function ServerPlatform(log, config) {
     var logfilesRouterLib = require(path.resolve(__dirname, 'api', 'routes', 'logfiles.js'));
     server.use('/api/logfiles', logfilesRouterLib(config.log));
 
+    var restartRouterLib = require(path.resolve(__dirname, 'api', 'routes', 'restart.js'));
+    server.use('/api/restart', restartRouterLib(HomebridgeAPI, config));
+
     var infoOptions = {
         "updateFrequency" : 10000,
         "updateCheckFrequency" : 3600000
