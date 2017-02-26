@@ -6,7 +6,7 @@ var should = require('chai').should(),       // eslint-disable-line
 
 
 describe('Testing the \'plugins\' API (/api/plugins)', function() {
-
+    this.timeout(5000);
     describe('GET /api/plugins', function() {
         it('GET /api/plugins returns a JSON with a list of installed plugins', function(done) {
             api.get('/api/plugins')
@@ -51,7 +51,6 @@ describe('Testing the \'plugins\' API (/api/plugins)', function() {
     });
 
     describe('Install a plugin', function() {
-        this.timeout(5000);
         it('Succeeds ...', function(done) {
             api.post('/api/plugins/')
             .send("pluginName=" + "homebridge-platform-wemo")
