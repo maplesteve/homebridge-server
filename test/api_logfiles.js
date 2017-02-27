@@ -138,6 +138,7 @@ describe('Testing the \'logfiles\' API (/api/logfiles)', function() {
                     es.onmessage = function (m) {
                         var result = JSON.parse(m.data);
                         result.should.have.property('data');
+                        es.close();
                         done();
                     };
                 });

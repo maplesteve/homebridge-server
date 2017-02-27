@@ -15,6 +15,7 @@ describe('Testing /api/bridgeInfo', function() {
             result.data.should.have.property('heap');
             result.data.should.have.property('osInfo');
             result.data.should.have.property('hbVersion');
+            es.close();
             done();
         };
     });
