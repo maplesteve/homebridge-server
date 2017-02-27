@@ -11,7 +11,7 @@ describe('Testing the \'plugins\' API (/api/plugins)', function() {
         it('GET /api/plugins returns a JSON with a list of installed plugins', function(done) {
             api.get('/api/plugins')
             .expect(200)
-            .expect('Content-Type', 'application/json')
+            .expect('Content-Type', /application\/json/)
             .end(function(err, res) {
                 if (err) return done(err);
                 res.body.should.be.a('array');
@@ -37,7 +37,7 @@ describe('Testing the \'plugins\' API (/api/plugins)', function() {
         it('returns a JSON list search results for \'server\'', function(done) {
             api.get('/api/plugins/common/searchNPM?q=server')
             .expect(200)
-            .expect('Content-Type', 'application/json')
+            .expect('Content-Type', /application\/json/)
             .end(function(err, res) {
                 if (err) return done(err);
                 res.body.should.be.a('array').with.length.above(2);

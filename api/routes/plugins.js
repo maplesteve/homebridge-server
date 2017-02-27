@@ -19,10 +19,7 @@ module.exports = function() {
 
     router.route('/')
         .get(function(req, res) {
-            res.statusCode = 200;
-            res.setHeader("Content-Type", "application/json");
-            res.write(JSON.stringify(pluginMgr.plugins()));
-            res.end();
+            res.status(200).json(pluginMgr.plugins());
         })
 
         .post(function(req, res) {
@@ -97,10 +94,7 @@ module.exports = function() {
     router.route('/common/searchNPM')
         .get(function(req, res) {
             pluginMgr.search(req.query.q, function(results) {
-                res.statusCode = 200;
-                res.setHeader("Content-Type", "application/json");
-                res.write(JSON.stringify(results));
-                res.end();
+                res.status(200).json(results);
             });
         })
 

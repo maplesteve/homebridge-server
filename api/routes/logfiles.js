@@ -14,10 +14,7 @@ module.exports = function(logfilePath) {
     router.route('/')
         .get(function(req, res) {
             var logs = logProvider.logFiles();
-            res.setHeader("Content-Type", "application/json");
-            res.statusCode = 200;
-            res.write(JSON.stringify(logs));
-            res.end();
+            res.status(200).json(logs);
         })
 
     router.route('/:logID')
@@ -25,13 +22,10 @@ module.exports = function(logfilePath) {
             var logID = req.params.logID;
             var log = logProvider.logFile(logID);
             if (log) {
-                res.setHeader("Content-Type", "application/json");
-                res.statusCode = 200;
-                res.write(JSON.stringify({"logfilePath": log}));
+                res.status(200).json({"logfilePath": log});
             } else {
-                res.statusCode = 404;
+                res.status(404).end();
             }
-            res.end();
         })
 
         router.route('/:logID/paging/:page')
@@ -40,8 +34,7 @@ module.exports = function(logfilePath) {
                 var logID = req.params.logID ;
                 var log = logProvider.logFile(logID);
                 if (!log) {
-                    res.statusCode = 404;
-                    res.end();
+                    res.status(404).end();
                     return;
                 }
                 var page = req.params.page * 1;   // make sure, this is not a string...
@@ -49,17 +42,13 @@ module.exports = function(logfilePath) {
                     res.setHeader("Content-Type", "application/json");
                     if (success) {
                         if (data.lines.length === 0) {
-                            res.statusCode = 404;
-                            res.end();
+                            res.status(404).end();
                             return
                         }
-                        res.statusCode = 200;
-                        res.write(JSON.stringify(data));
+                        res.status(200).json(data);
                     } else {
-                        res.statusCode = 400;
-                        res.write(JSON.stringify({'error': data}));
+                        res.status(400).json({"error": data});
                     }
-                    res.end();
                 });
             })
 
@@ -70,13 +59,10 @@ module.exports = function(logfilePath) {
                 logProvider.subscribe(logID, function (success, data) {
                     res.setHeader("Content-Type", "application/json");
                     if (success) {
-                        res.statusCode = 201;
-                        res.write(JSON.stringify({"subscriptionID": data}));
+                        res.status(201).json({"subscriptionID": data});
                     } else {
-                        res.statusCode = 400;
-                        res.write(JSON.stringify({"error": data}));
+                        res.status(400).json({"error": data});
                     }
-                    res.end();
                 });
             })
 
@@ -86,14 +72,10 @@ module.exports = function(logfilePath) {
                 var subscriptionID = req.params.subscriptionID;
                 logProvider.unsubscribe(logID, subscriptionID, function (success, data) {
                     if (success) {
-                        res.statusCode = 204;
-                        res.end();
+                        res.status(204).end();
                     } else {
-                        res.setHeader("Content-Type", "application/json");
-                        res.statusCode = 400;
-                        res.write(JSON.stringify({"error": data}));
+                        res.status(400).json({"error": data});
                     }
-                    res.end();
                 });
             })
 
@@ -103,8 +85,7 @@ module.exports = function(logfilePath) {
                 var subscriptionID = req.params.subscriptionID;
 
                 if (req.headers.accept !== "text/event-stream") {
-                    res.statusCode = 406;
-                    res.end("You must call this with \'Accept: text/event-stream\'");
+                    res.status(406).end("You must call this with \'Accept: text/event-stream\'");
                     return;
                 }
 

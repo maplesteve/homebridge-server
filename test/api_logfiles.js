@@ -10,7 +10,7 @@ describe('Testing the \'logfiles\' API (/api/logfiles)', function() {
         it('returns the logfile paths as JSON array', function(done) {
             api.get('/api/logfiles')
             .expect(200)
-            .expect('Content-Type', 'application/json')
+            .expect('Content-Type', /application\/json/)
             .end(function(err, res) {
                 if (err) return done(err);
                 res.body.should.be.a('array').and.have.lengthOf(3);
@@ -21,7 +21,7 @@ describe('Testing the \'logfiles\' API (/api/logfiles)', function() {
         it('returns \'homebridge.err\' for the id 2', function(done) {
             api.get('/api/logfiles/2')
             .expect(200)
-            .expect('Content-Type', 'application/json')
+            .expect('Content-Type', /application\/json/)
             .end(function(err, res) {
                 if (err) return done(err);
                 res.body.should.be.a('object');

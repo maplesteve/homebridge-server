@@ -17,10 +17,9 @@ module.exports = function(hbAPI, configManager) {
                 bridgeName: bridgeConfig.name,
                 bridgeUsername: bridgeConfig.username,
             }
-            res.setHeader("Content-Type", "application/json");
-            res.write(JSON.stringify(resultJSON));
-            res.end();
+            res.status(200).json(resultJSON);
         })
+
         .put(function(req, res) {
             var configChanges = req.body;
             var changes = [];
@@ -41,32 +40,17 @@ module.exports = function(hbAPI, configManager) {
             }
 
             if (!hasChanges) {
-                res.statusCode = 204;
-                res.end();
+                res.status(204).end();
                 return;
             }
 
             confMgr.updateBridgeConfig(changes, function(success, msg) {
                 if (success) {
-                    res.statusCode = 204;
+                    res.status(204).end();
                 } else {
-                    res.statusCode = 400;
-                    res.setHeader("Content-Type", "application/json");
-                    res.write(JSON.stringify({'error': msg}));
+                    res.status(400).json({"error": msg});
                 }
-                res.end();
             });
-            //
-            // serverAPI.saveBridgeConfig(bodyJSON, function (success, msg) {
-            //     if (success) {
-            //         res.statusCode = 204;
-            //     } else {
-            //         res.statusCode = 400;
-            //         res.setHeader("Content-Type", "application/json");
-            //         res.write(JSON.stringify({'error': msg}));
-            //     }
-            //     res.end();
-            // });
         })
 
     router.route('/createBackup')
@@ -74,13 +58,10 @@ module.exports = function(hbAPI, configManager) {
             confMgr.backupConfigFile(function (success, msg) {
                 res.setHeader("Content-Type", "application/json");
                 if (success) {
-                    res.statusCode = 200;
-                    res.write(JSON.stringify({'path': msg}));
+                    res.status(200).json({"path": msg});
                 } else {
-                    res.statusCode = 400;
-                    res.write(JSON.stringify({'error': msg}));
+                    res.status(400).json({"error": msg});
                 }
-                res.end();
             });
         })
 

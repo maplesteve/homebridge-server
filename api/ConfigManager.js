@@ -50,14 +50,13 @@ ConfigManager.prototype.platforms = function() {
     return Platforms.devices();
 }
 
-ConfigManager.prototype.platform = function(platformID) {
+ConfigManager.prototype.platform = function(platformID, callback) {
     var pf = Platforms.get(platformID);
     if (pf) {
-        // TODO: no reason for JSON here...
-        return ({"success": true, "data": pf});
+        callback(true, pf);
+        return;
     }
-    // TODO: no reason for JSON here...
-    return ({"success": false, "error": "Invalid configDigest: " + platformID});
+    callback(false, "Invalid ID: " + platformID);
 }
 
 ConfigManager.prototype.addPlatform = function(platformConfig, callback) {
@@ -86,14 +85,13 @@ ConfigManager.prototype.accessories = function() {
     return Accessories.devices();
 }
 
-ConfigManager.prototype.accessory = function(accessoryID) {
+ConfigManager.prototype.accessory = function(accessoryID, callback) {
     var acc = Accessories.get(accessoryID);
     if (acc) {
-        // TODO: no reason for JSON here...
-        return ({"success": true, "data": acc});
+        callback(true, acc);
+        return;
     }
-    // TODO: no reason for JSON here...
-    return ({"success": false, "error": "Invalid configDigest: " + accessoryID});
+    callback(false, "Invalid ID: " + accessoryID);
 }
 
 ConfigManager.prototype.addAccessory = function(accessoryConfig, callback) {

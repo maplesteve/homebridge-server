@@ -6,13 +6,6 @@ var router = express.Router();
 
 var confMgr;
 
-function sendError(res, msg) {
-    res.setHeader("Content-Type", "application/json");
-    res.statusCode = 400;
-    res.write(JSON.stringify({"error": msg}));
-    res.end();
-}
-
 function preparePlatformConfig(res, newConfig) {
     var newConfigPartString = JSON.stringify(newConfig.accessoryConfig);
     var newConfigPartClean = newConfigPartString.replace(/\\/g, "").replace(/\'/g, "\"");
@@ -23,7 +16,7 @@ function preparePlatformConfig(res, newConfig) {
         delete newConfigJSON.configID;
         return newConfigJSON;
     } catch (e) {
-        sendError(res, 'Invalid JSON.');
+        res.status(400).json({"error": 'Invalid JSON.'});
         return;
     }
 }
@@ -33,62 +26,47 @@ module.exports = function(configManager) {
 
     router.route('/')
         .get(function(req, res) {
-            res.statusCode = 200;
-            res.setHeader("Content-Type", "application/json");
-            res.write(JSON.stringify(confMgr.accessories()));
-            res.end();
+            res.status(200).json(confMgr.accessories());
         })
 
         .post(function(req, res) {
             var newConfigJSON = preparePlatformConfig(res, req.body);
             confMgr.addAccessory(newConfigJSON, function(success, msg) {
-                if (!success) {
-                    sendError(res, msg.error);
-                    return;
+                if (success) {
+                    res.status(201).json({"accessoryID": msg.accessoryID});
+                } else {
+                    res.status(400).json({"error": msg.error});
                 }
-                res.setHeader("Content-Type", "application/json");
-                res.statusCode = 201;
-                res.write(JSON.stringify({"accessoryID": msg.accessoryID}));
-                res.end();
-                return;
             });
         })
 
     router.route('/:accessoryID')
         .get(function(req, res) {
             var accessoryID = req.params.accessoryID;
-            var result = confMgr.accessory(accessoryID);
-            if (result.success) {
-                res.statusCode = 200;
-                res.setHeader("Content-Type", "application/json");
-                res.write(JSON.stringify(result.data));
-                res.end();
-            } else {
-                res.statusCode = 404;
-                res.end();
-            }
+            confMgr.accessory(accessoryID, function(success, data) {
+                if (success) {
+                    res.status(200).json(data);
+                } else {
+                    res.status(404).end();
+                }
+            });
         })
 
         .put(function(req, res) {
             var accessoryID = req.params.accessoryID;
             confMgr.removeAccessory(accessoryID, function(success, msg) {
                 if (!success) {
-                    res.setHeader("Content-Type", "application/json");
-                    res.statusCode = 404;
-                    res.end(JSON.stringify({"error": msg}));
+                    res.status(404).json({"error": msg});
                     return;
                 }
 
                 var newAccessoryConfig = preparePlatformConfig(res, req.body);
                 confMgr.addAccessory(newAccessoryConfig, function(success, msg) {
                     if (!success) {
-                        sendError(res, msg.error);
+                        res.status(400).json({"error": msg.error});
                         return;
                     }
-                    res.setHeader("Content-Type", "application/json");
-                    res.statusCode = 201;
-                    res.write(JSON.stringify({"accessoryID": msg.accessoryID}));
-                    res.end();
+                    res.status(201).json({"accessoryID": msg.accessoryID});
                     return;
                 });
             });
@@ -99,12 +77,10 @@ module.exports = function(configManager) {
             confMgr.removeAccessory(accessoryID, function(success, msg) {
                 res.setHeader("Content-Type", "application/json");
                 if (success) {
-                    res.statusCode = 204;
+                    res.status(204).end();
                 } else {
-                    res.statusCode = 404;
-                    res.write(JSON.stringify({'error': msg}));
+                    res.status(404).json({"error": msg});
                 }
-                res.end();
             })
         })
 

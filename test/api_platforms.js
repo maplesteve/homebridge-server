@@ -14,7 +14,7 @@ describe('Testing the \'platforms\' API (/api/platforms)', function() {
         it('GET /api/platforms returns a JSON with a list of installed platforms', function(done) {
             api.get('/api/platforms')
             .expect(200)
-            .expect('Content-Type', 'application/json')
+            .expect('Content-Type', /application\/json/)
             .end(function(err, res) {
                 if (err) return done(err);
                 res.body.should.be.a('array');
@@ -34,7 +34,7 @@ describe('Testing the \'platforms\' API (/api/platforms)', function() {
         it('returns a JSON with the platform identified by a valid id', function(done) {
             api.get('/api/platforms/' + save)
             .expect(200)
-            .expect('Content-Type', 'application/json')
+            .expect('Content-Type', /application\/json/)
             .end(function(err, res) {
                 if (err) return done(err);
                 res.body.should.be.a('object');

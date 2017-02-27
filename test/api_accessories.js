@@ -14,7 +14,7 @@ describe('Testing the \'accessories\' API (/api/accessories)', function() {
         it('GET /api/accessories returns a JSON with a list of installed accessories', function(done) {
             api.get('/api/accessories')
             .expect(200)
-            .expect('Content-Type', 'application/json')
+            .expect('Content-Type', /application\/json/)
             .end(function(err, res) {
                 if (err) return done(err);
                 res.body.should.be.a('array');
@@ -34,7 +34,7 @@ describe('Testing the \'accessories\' API (/api/accessories)', function() {
         it('returns a JSON with the accessory identified by a valid id', function(done) {
             api.get('/api/accessories/' + save)
             .expect(200)
-            .expect('Content-Type', 'application/json')
+            .expect('Content-Type', /application\/json/)
             .end(function(err, res) {
                 if (err) return done(err);
                 res.body.should.be.a('object');

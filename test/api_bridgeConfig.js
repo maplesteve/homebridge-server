@@ -12,7 +12,7 @@ describe('Testing the \'bridgeConfig\' API (/api/bridgeConfig)', function() {
         it('returns a JSON with bridge config', function(done) {
             api.get('/api/bridgeConfig')
             .expect(200)
-            .expect('Content-Type', 'application/json')
+            .expect('Content-Type', /application\/json/)
             .end(function(err, res) {
                 if (err) return done(err);
                 res.body.should.be.a('object');
@@ -110,7 +110,7 @@ describe('Testing the \'bridgeConfig\' API (/api/bridgeConfig)', function() {
             api.put('/api/bridgeConfig')
             .send("bridgePin=" + "invalid")
             .expect(400)
-            .expect('Content-Type', 'application/json')
+            .expect('Content-Type', /application\/json/)
             .end(function(saveErr, saveRes) {
                 if (saveErr) { return done(saveErr); }
                 saveRes.body.should.have.property('error').with.length.above(5);
@@ -143,7 +143,7 @@ describe('Testing the \'bridgeConfig\' API (/api/bridgeConfig)', function() {
             api.put('/api/bridgeConfig')
             .send("bridgeUsername=" + "invalid")
             .expect(400)
-            .expect('Content-Type', 'application/json')
+            .expect('Content-Type', /application\/json/)
             .end(function(saveErr, saveRes) {
                 if (saveErr) { return done(saveErr); }
                 saveRes.body.should.have.property('error').with.length.above(5);
@@ -159,7 +159,7 @@ describe('Testing the \'bridgeConfig\' API (/api/bridgeConfig)', function() {
     describe('POST /api/bridgeConfig/createBackup', function() {
         it('Creates config.json.bak in config dir', function(done) {
             api.post('/api/bridgeConfig/createBackup')
-            .expect('Content-Type', 'application/json')
+            .expect('Content-Type', /application\/json/)
             .expect(200)
             .end(function(err, res) {
                 if (err) return done(err);
