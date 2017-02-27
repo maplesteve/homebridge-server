@@ -77,14 +77,33 @@ echo "========"
 ## original test:
 ## homebridge -U ~/.homebridge -P . > /dev/null 2>&1 & sleep 10; ( curl -Is http://127.0.0.1:8765/remove | head -1 ); kill $!
 
+EXITCODE=0
+
 echo "1) Lint"
-eslint ./*.js api/*.js content/*.js test/*.js
-EXIT1=$?
+echo "   *.js"
+eslint ./*.js
+EXITCODE=$(expr $EXITCODE + $?)
+
+echo "   api/*.js"
+eslint api/*.js
+EXITCODE=$(expr $EXITCODE + $?)
+
+echo "   api/routes/*.js"
+eslint api/routes/*.js
+EXITCODE=$(expr $EXITCODE + $?)
+
+echo "   content/js/*.js"
+eslint content/js/*.js
+EXITCODE=$(expr $EXITCODE + $?)
+
+echo "   test/*.js"
+eslint test/*.js
+EXITCODE=$(expr $EXITCODE + $?)
+
 
 echo "2) mocha"
 ./node_modules/mocha/bin/mocha
-EXIT2=$?
-
+EXITCODE=$(expr $EXITCODE + $?)
 
 
 # Clean up
@@ -92,6 +111,4 @@ EXIT2=$?
 killall homebridge
 rm -rf $TEST_CONFIG_DIR
 
-# Add up the exit codes and return
-EXITCODE=$(expr $EXIT1 + $EXIT2)
 exit $EXITCODE
